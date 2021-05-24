@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.example.udpdatetest"
+        minSdkVersion 14
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+//    signingConfigs{
+//        debug{
+//            storeFile file("../keystores/android.keystore")
+//            storePassword "xuexiang"
+//            keyAlias "android.keystore"
+//            keyPassword "xuexiang"
+//        }
+//    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+//        debug{
+//            signingConfig signingConfigs.debug
+//        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.0.2'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+
+    implementation 'com.github.xuexiangjys.XUtil:xutil-core:2.0.0'
+    implementation 'com.github.xuexiangjys.XUtil:xutil-sub:2.0.0'
+    implementation 'com.github.xuexiangjys.XAOP:xaop-runtime:1.1.0'
+    implementation 'com.github.xuexiangjys:XUpdate:2.0.7'
+    implementation 'com.zhy:okhttputils:2.6.2'
+    implementation 'com.google.code.gson:gson:2.8.5'
+    implementation 'com.squareup.okhttp3:okhttp:3.14.9'
+
+    implementation 'com.jakewharton:butterknife:10.1.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.1.0'
+}
